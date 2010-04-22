@@ -18,7 +18,7 @@ sub call {
     # This middleware only work for DoCoMo.
     # Don't consider xhtml_compliant. 
     # If you care about this, use enable_if and HTML::MobileAgent::DoCoMo->xhtml_compliant.
-    if ( $env->{USER_AGENT} && $env->{USER_AGENT} =~ $DOCOMO_RE ) { 
+    if ( $env->{HTTP_USER_AGENT} && $env->{HTTP_USER_AGENT} =~ $DOCOMO_RE ) { 
         my $content_type = Plack::Util::header_get($res->[1], 'Content-Type');
         if ( $content_type =~ m{^text/html} ) {
             $content_type =~ s{^text/html}{application/xhtml+xml}i;
