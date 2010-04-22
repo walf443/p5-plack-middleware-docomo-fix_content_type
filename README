@@ -1,8 +1,13 @@
 NAME
-    Plack::Middleware::DoCoMo::FixContentType -
+    Plack::Middleware::DoCoMo::FixContentType - rewrite Content-Type header
+    text/html to application/xhtml+xml
 
 SYNOPSIS
-      use Plack::Middleware::DoCoMo::FixContentType;
+        use Plack::Builder;
+        bulider {
+            enable 'DoCoMo::FixContentType';
+            $app;
+        };
 
 DESCRIPTION
     Plack::Middleware::DoCoMo::FixContentType is
